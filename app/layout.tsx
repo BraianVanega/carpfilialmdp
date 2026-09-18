@@ -19,12 +19,33 @@ const display = Oswald({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
+  ),
   title: {
     default: "Filial Enzo Francescoli | River Plate Mar del Plata",
     template: "%s | Filial Enzo Francescoli",
   },
   description:
     "Filial oficial de River Plate en Mar del Plata. Historia, sede, comunidad y próximas salidas al Monumental.",
+  icons: {
+    icon: [{ url: "/icon.png", type: "image/png" }],
+    apple: [{ url: "/apple-icon.png", type: "image/png" }],
+  },
+  openGraph: {
+    type: "website",
+    locale: "es_AR",
+    siteName: "Filial Enzo Francescoli",
+    title: "Filial Enzo Francescoli | River Plate Mar del Plata",
+    description:
+      "Filial oficial de River Plate en Mar del Plata. Historia, sede, comunidad y próximas salidas al Monumental.",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Filial Enzo Francescoli | River Plate Mar del Plata",
+    description:
+      "Filial oficial de River Plate en Mar del Plata. Historia, sede, comunidad y próximas salidas al Monumental.",
+  },
 };
 
 export default async function RootLayout({
