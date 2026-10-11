@@ -52,8 +52,8 @@ export const mockInstitucional: Institucional = {
       {
         titulo: "El salón de la familia millonaria",
         imagen: {
-          url: "/images/sede/salon.jpg",
-          alt: "Vitrina con merchandising de la Filial Enzo Francescoli",
+          url: "/images/sede/entrada.jpg",
+          alt: "Salón de la Filial Enzo Francescoli con mesas rojas y escudos de River Plate",
         },
       },
       {
@@ -66,15 +66,15 @@ export const mockInstitucional: Institucional = {
       {
         titulo: "Barra de la filial",
         imagen: {
-          url: "/images/sede/bar.jpg",
+          url: "/images/sede/camisetas.jpg",
           alt: "Barra de la filial en Mar del Plata",
         },
       },
       {
-        titulo: "Rincón de las camisetas",
+        titulo: "La vitrina millonaria",
         imagen: {
-          url: "/images/sede/camisetas.jpg",
-          alt: "Camisetas de River Plate colgadas en la filial",
+          url: "/images/sede/salon.jpg",
+          alt: "Vitrina con merchandising de la Filial Enzo Francescoli",
         },
       },
     ],
