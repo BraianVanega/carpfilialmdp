@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { ReactNode } from "react";
 import { whatsappLink } from "@/lib/site";
 
 const RIVER_ID_URL = "https://www.riverid.com.ar/";
@@ -28,10 +29,23 @@ const ACLARACIONES = [
   "Los menores que no son socios necesitan su propia entrada, aunque tengan 1 año.",
 ];
 
-const PASOS = [
+const PASOS: { titulo: string; descripcion: ReactNode }[] = [
   {
     titulo: "Registrate en River ID",
-    descripcion: "Entrá a riverid.com.ar y tocá «¡Registrate acá!».",
+    descripcion: (
+      <>
+        Entrá a{" "}
+        <a
+          href={RIVER_ID_URL}
+          target="_blank"
+          rel="noreferrer"
+          className="text-white underline underline-offset-2 hover:text-river-red"
+        >
+          riverid.com.ar
+        </a>{" "}
+        y tocá «¡Registrate acá!».
+      </>
+    ),
   },
   {
     titulo: "Identificate",

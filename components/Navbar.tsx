@@ -20,6 +20,16 @@ type Props = {
   proximo?: Partido;
 };
 
+function BandaMuyPronto() {
+  return (
+    <span
+      className="pointer-events-none absolute -inset-x-3 top-1/2 -translate-y-1/2 -rotate-[14deg] bg-river-gold text-center text-[7px] font-bold uppercase leading-[11px] tracking-[0.24em] text-black shadow"
+    >
+      Muy pronto
+    </span>
+  );
+}
+
 export function Navbar({ proximo }: Props) {
   const [open, setOpen] = useState(false);
   const { open: openModal } = useProximamente();
@@ -72,19 +82,10 @@ export function Navbar({ proximo }: Props) {
             <button
               type="button"
               onClick={openModal}
-              className="hidden h-9 items-center whitespace-nowrap rounded-md px-3 text-xs font-semibold uppercase tracking-wide text-white/80 ring-1 ring-white/20 transition hover:bg-white/5 sm:inline-flex"
+              className="relative hidden h-9 items-center overflow-hidden whitespace-nowrap rounded-md bg-river-red px-4 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-red-700 sm:inline-flex"
             >
               Iniciar sesión
-              <span className="ml-2 rounded bg-white/10 px-1.5 py-0.5 text-[9px] text-river-gold">
-                Pronto
-              </span>
-            </button>
-            <button
-              type="button"
-              onClick={openModal}
-              className="hidden h-9 items-center rounded-md bg-river-red px-3 text-xs font-semibold uppercase tracking-wide text-white transition hover:bg-red-700 sm:inline-flex"
-            >
-              Asociate
+              <BandaMuyPronto />
             </button>
             <button
               type="button"
@@ -121,28 +122,17 @@ export function Navbar({ proximo }: Props) {
               </Link>
             ))}
           </nav>
-          <div className="mt-4 grid grid-cols-2 gap-2">
-            <button
-              type="button"
-              onClick={() => {
-                setOpen(false);
-                openModal();
-              }}
-              className="h-11 rounded-md text-xs font-semibold uppercase tracking-wide text-white ring-1 ring-white/20"
-            >
-              Iniciar sesión
-            </button>
-            <button
-              type="button"
-              onClick={() => {
-                setOpen(false);
-                openModal();
-              }}
-              className="h-11 rounded-md bg-river-red text-xs font-semibold uppercase tracking-wide text-white"
-            >
-              Asociate
-            </button>
-          </div>
+          <button
+            type="button"
+            onClick={() => {
+              setOpen(false);
+              openModal();
+            }}
+            className="relative mt-4 h-11 w-full overflow-hidden rounded-md bg-river-red text-xs font-semibold uppercase tracking-wide text-white"
+          >
+            Iniciar sesión
+            <BandaMuyPronto />
+          </button>
         </div>
       ) : null}
     </header>
