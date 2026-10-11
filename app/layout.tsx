@@ -8,6 +8,7 @@ import { Navbar } from "@/components/Navbar";
 import { ProximamenteProvider } from "@/components/ProximamenteModal";
 import { getInstitucional } from "@/lib/content";
 import { getPartidos } from "@/lib/partidos";
+import { SITE_URL } from "@/lib/site";
 import "./globals.css";
 
 const body = Inter({
@@ -22,15 +23,13 @@ const display = Oswald({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "http://localhost:3000"
-  ),
+  metadataBase: new URL(SITE_URL),
   title: {
     default: "Filial Enzo Francescoli | River Plate Mar del Plata",
     template: "%s | Filial Enzo Francescoli",
   },
   description:
-    "Filial oficial de River Plate en Mar del Plata. Historia, comunidad y próximas salidas al Monumental.",
+    "Filial oficial de River Plate en Mar del Plata. Viajes al Monumental, transmisiones de cada partido y comunidad millonaria. Visitanos en Deán Funes 2221.",
   icons: {
     icon: [{ url: "/icon.png", type: "image/png" }],
     apple: [{ url: "/apple-icon.png", type: "image/png" }],

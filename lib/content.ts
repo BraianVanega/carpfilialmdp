@@ -9,7 +9,7 @@ export const mockInstitucional: Institucional = {
   historiaTitulo: "Nuestra historia & sentimiento millonario",
   historiaCuerpo: [
     "La Filial Enzo Francescoli es el punto de encuentro de los hinchas de River Plate en Mar del Plata. Nacimos para que la distancia no apague la pasión.",
-    "Acá no venís solo a mirar un partido. Venís a pertenecer. Acá no venís solo a mirar un partido. Venís a ser parte de una familia cuyos valores, pasión y sentido de pertenencia pasan de generación en generación.",
+    "Acá no venís solo a mirar un partido. Venís a pertenecer. Venís a ser parte de una familia cuyos valores, pasión y sentido de pertenencia pasan de generación en generación.",
   ],
   actividadesTitulo: "Qué hacemos en la filial",
   actividades: [

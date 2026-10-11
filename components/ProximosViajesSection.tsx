@@ -6,12 +6,14 @@ type Props = {
   partidos: Partido[];
   titulo?: string;
   mostrarLink?: boolean;
+  tituloComo?: "h1" | "h2";
 };
 
 export function ProximosViajesSection({
   partidos,
   titulo = "Subite al micro: próximas salidas al Más Monumental",
   mostrarLink = true,
+  tituloComo: Titulo = "h2",
 }: Props) {
   return (
     <section id="proximos-viajes" className="scroll-mt-24 bg-black py-20">
@@ -21,9 +23,9 @@ export function ProximosViajesSection({
             <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-river-red">
               Calendario millonario
             </p>
-            <h2 className="mt-3 max-w-2xl font-display text-3xl uppercase text-white sm:text-5xl">
+            <Titulo className="mt-3 max-w-2xl font-display text-3xl uppercase text-white sm:text-5xl">
               {titulo}
-            </h2>
+            </Titulo>
             <div className="mt-4 h-1 w-14 bg-river-red" />
           </div>
           {mostrarLink ? (

@@ -10,6 +10,18 @@ export const metadata: Metadata = {
   title: "Próximos viajes y partidos",
   description:
     "Calendario informativo de los próximos partidos de River Plate y salidas de la Filial Enzo Francescoli desde Mar del Plata.",
+  alternates: { canonical: "/proximos-viajes" },
+  openGraph: {
+    title: "Próximos viajes y partidos | Filial Enzo Francescoli",
+    description:
+      "Próximos partidos de River Plate y salidas en micro desde Mar del Plata al Monumental con la Filial Enzo Francescoli.",
+    url: "/proximos-viajes",
+  },
+  twitter: {
+    title: "Próximos viajes y partidos | Filial Enzo Francescoli",
+    description:
+      "Próximos partidos de River Plate y salidas en micro desde Mar del Plata al Monumental con la Filial Enzo Francescoli.",
+  },
 };
 
 export default async function ProximosViajesPage() {
@@ -27,6 +39,7 @@ export default async function ProximosViajesPage() {
       <ProximosViajesSection
         partidos={partidos}
         titulo="Próximos partidos de River"
+        tituloComo="h1"
         mostrarLink={false}
       />
     </div>
