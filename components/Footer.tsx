@@ -50,6 +50,11 @@ export function Footer({ sede }: Props) {
               </Link>
             </li>
             <li>
+              <Link href="/entradas" className="hover:text-white">
+                Cómo sacar entradas
+              </Link>
+            </li>
+            <li>
               <Link href="/#sede" className="hover:text-white">
                 Ubicación
               </Link>

@@ -11,6 +11,7 @@ const NAV_LINKS = [
   { href: "/#identidad", label: "La filial" },
   { href: "/#que-hacemos", label: "Qué hacemos" },
   { href: "/proximos-viajes", label: "Viajes" },
+  { href: "/entradas", label: "Entradas" },
   { href: "/#sede", label: "Ubicación" },
   { href: "/#contacto", label: "Contacto" },
 ];
@@ -45,7 +46,7 @@ export function Navbar({ proximo }: Props) {
               className="h-11 w-11"
               priority
             />
-            <span className="hidden leading-tight sm:block">
+            <span className="hidden whitespace-nowrap leading-tight sm:block">
               <span className="block font-display text-[11px] uppercase tracking-[0.22em] text-white">
                 Filial Enzo Francescoli
               </span>
@@ -55,12 +56,12 @@ export function Navbar({ proximo }: Props) {
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-6 lg:flex" aria-label="Principal">
+          <nav className="hidden items-center gap-5 xl:flex" aria-label="Principal">
             {NAV_LINKS.map((link) => (
               <Link
                 key={link.href}
                 href={link.href}
-                className="text-xs font-medium uppercase tracking-[0.16em] text-white/70 transition hover:text-white"
+                className="whitespace-nowrap text-xs font-medium uppercase tracking-[0.16em] text-white/70 transition hover:text-white"
               >
                 {link.label}
               </Link>
@@ -71,7 +72,7 @@ export function Navbar({ proximo }: Props) {
             <button
               type="button"
               onClick={openModal}
-              className="hidden h-9 items-center rounded-md px-3 text-xs font-semibold uppercase tracking-wide text-white/80 ring-1 ring-white/20 transition hover:bg-white/5 sm:inline-flex"
+              className="hidden h-9 items-center whitespace-nowrap rounded-md px-3 text-xs font-semibold uppercase tracking-wide text-white/80 ring-1 ring-white/20 transition hover:bg-white/5 sm:inline-flex"
             >
               Iniciar sesión
               <span className="ml-2 rounded bg-white/10 px-1.5 py-0.5 text-[9px] text-river-gold">
@@ -87,7 +88,7 @@ export function Navbar({ proximo }: Props) {
             </button>
             <button
               type="button"
-              className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white ring-1 ring-white/20 lg:hidden"
+              className="inline-flex h-10 w-10 items-center justify-center rounded-md text-white ring-1 ring-white/20 xl:hidden"
               aria-expanded={open}
               aria-controls="mobile-nav"
               onClick={() => setOpen((value) => !value)}
@@ -106,7 +107,7 @@ export function Navbar({ proximo }: Props) {
       {open ? (
         <div
           id="mobile-nav"
-          className="border-b border-white/10 bg-black px-4 py-4 lg:hidden"
+          className="border-b border-white/10 bg-black px-4 py-4 xl:hidden"
         >
           <nav className="flex flex-col gap-1" aria-label="Móvil">
             {NAV_LINKS.map((link) => (
