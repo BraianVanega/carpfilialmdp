@@ -44,7 +44,7 @@ export const mockInstitucional: Institucional = {
     ciudad: "B7600CFM Mar del Plata, Buenos Aires",
     horarios: "Lun a Vie 8 a 17 hs · Noches y días de partido",
     telefono: "+54 9 223 446-1253",
-    email: "hola@filialenzofrancescoli.com",
+    email: "filialenzof@gmail.com",
     instagram: "https://instagram.com/filialenzofrancescoli",
     mapaEmbedUrl:
       "https://maps.google.com/maps?q=Filial%20Enzo%20Francescoli%20Mar%20Del%20Plata%40-37.996536,-57.5646371&z=17&output=embed",

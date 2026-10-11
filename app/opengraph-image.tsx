@@ -11,6 +11,10 @@ export default async function OpenGraphImage() {
     join(process.cwd(), "public/images/logo-fef.png")
   );
   const src = `data:image/png;base64,${logo.toString("base64")}`;
+  const escudos = await readFile(
+    join(process.cwd(), "public/images/identidad.jpg")
+  );
+  const bg = `data:image/jpeg;base64,${escudos.toString("base64")}`;
 
   return new ImageResponse(
     (
@@ -23,9 +27,27 @@ export default async function OpenGraphImage() {
           alignItems: "center",
           justifyContent: "center",
           background: "#090909",
+          position: "relative",
         }}
       >
-        <img src={src} width={360} height={360} alt="" />
+        <img
+          src={bg}
+          width={1200}
+          height={630}
+          alt=""
+          style={{ position: "absolute", top: 0, left: 0, objectFit: "cover" }}
+        />
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+            background: "rgba(0, 0, 0, 0.6)",
+          }}
+        />
+        <img src={src} width={300} height={300} alt="" />
         <div
           style={{
             marginTop: 28,
