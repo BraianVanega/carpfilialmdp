@@ -12,7 +12,9 @@ type Props = {
 
 export function PartidoCard({ partido, destacado = false }: Props) {
   const condicion = partido.esLocal ? "Local · Monumental" : "Visitante";
-  const tituloViaje = `River Plate vs ${partido.rival}`;
+  const tituloViaje = partido.esLocal
+    ? `River Plate vs ${partido.rival}`
+    : `${partido.rival} vs River Plate`;
   const mensaje = `Hola, quiero anotarme para el viaje de ${tituloViaje} (${formatFechaPartido(partido)}).`;
 
   return (
