@@ -85,6 +85,16 @@ export function Footer({ sede }: Props) {
       </div>
       <div className="border-t border-white/10 py-4 text-center text-[11px] uppercase tracking-[0.14em] text-white/40">
         © {new Date().getFullYear()} Filial Enzo Francescoli. Todos los derechos reservados.
+        {" · "}
+        Sitio por{" "}
+        <a
+          href="https://www.instagram.com/braianvanega/"
+          target="_blank"
+          rel="noreferrer"
+          className="hover:text-white"
+        >
+          @braianvanega
+        </a>
       </div>
     </footer>
   );
