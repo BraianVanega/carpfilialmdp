@@ -15,6 +15,8 @@ export function ProximosViajesSection({
   mostrarLink = true,
   tituloComo: Titulo = "h2",
 }: Props) {
+  const proximoViaje = partidos.find((partido) => partido.esLocal);
+
   return (
     <section id="proximos-viajes" className="scroll-mt-24 bg-black py-20">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
@@ -38,15 +40,21 @@ export function ProximosViajesSection({
           ) : null}
         </div>
 
-        <div className="mt-10 grid gap-4 md:grid-cols-3">
-          {partidos.map((partido, index) => (
-            <PartidoCard
-              key={partido.id}
-              partido={partido}
-              destacado={index === 0}
-            />
-          ))}
-        </div>
+        {partidos.length > 0 ? (
+          <div className="mt-10 grid gap-4 md:grid-cols-3">
+            {partidos.map((partido) => (
+              <PartidoCard
+                key={partido.id}
+                partido={partido}
+                destacado={partido.id === proximoViaje?.id}
+              />
+            ))}
+          </div>
+        ) : (
+          <p className="mt-10 text-sm text-white/65">
+            Todavía no hay próximos partidos confirmados.
+          </p>
+        )}
       </div>
     </section>
   );

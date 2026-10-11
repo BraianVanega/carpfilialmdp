@@ -10,7 +10,7 @@ import { getInstitucional } from "@/lib/content";
 import { getPartidos } from "@/lib/partidos";
 import { SITE_URL } from "@/lib/site";
 
-export const revalidate = 21600;
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   alternates: { canonical: "/" },
@@ -77,7 +77,9 @@ export default async function HomePage() {
         actividades={institucional.actividades}
       />
       <SedeSection titulo={institucional.sedeTitulo} sede={institucional.sede} />
-      <ProximosViajesSection partidos={partidos.slice(0, 3)} />
+      {partidos.length > 0 ? (
+        <ProximosViajesSection partidos={partidos.slice(0, 3)} />
+      ) : null}
       <SedeMapSection sede={institucional.sede} />
     </>
   );

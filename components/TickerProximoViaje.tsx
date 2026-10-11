@@ -12,7 +12,7 @@ export function TickerProximoViaje({ partido }: { partido: Partido }) {
         Próximo viaje
       </span>
       <span className="hidden text-white/90 sm:inline">
-        River vs {partido.rival} · {formatFechaPartido(partido.fecha)}
+        River vs {partido.rival} · {formatFechaPartido(partido)}
       </span>
     </div>
   );

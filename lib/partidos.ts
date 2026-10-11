@@ -4,85 +4,53 @@ export type Partido = {
   id: string;
   rival: string;
   fecha: string;
+  horaConfirmada?: boolean;
   competencia: string;
   esLocal: boolean;
   estadio: string;
 };
 
-const RIVER_TEAM_ID = process.env.FOOTBALL_TEAM_ID || "135171";
-const RIVER_NAMES = ["river plate", "ca river plate", "club atlético river plate"];
-
-function isRiver(name: string) {
-  return RIVER_NAMES.includes(name.trim().toLowerCase());
-}
-
-const FALLBACK_PARTIDOS: Partido[] = [
-  {
-    id: "fallback-boca",
-    rival: "Boca Juniors",
-    fecha: "2026-10-11T21:00:00-03:00",
-    competencia: "Liga Profesional",
-    esLocal: true,
-    estadio: "Estadio Más Monumental",
-  },
-  {
-    id: "fallback-nacional",
-    rival: "Nacional (URU)",
-    fecha: "2026-10-22T21:00:00-03:00",
-    competencia: "CONMEBOL Libertadores",
-    esLocal: false,
-    estadio: "Gran Parque Central",
-  },
-  {
-    id: "fallback-central",
-    rival: "Rosario Central",
-    fecha: "2026-11-02T19:00:00-03:00",
-    competencia: "Liga Profesional",
-    esLocal: true,
-    estadio: "Estadio Más Monumental",
-  },
-];
-
-type SportsDbEvent = {
-  idEvent: string;
-  strHomeTeam: string;
-  strAwayTeam: string;
-  dateEvent: string;
-  strTime?: string;
-  strLeague?: string;
-  strVenue?: string;
-};
+// API pública (no oficial) de ESPN. River Plate es el equipo 16.
+const ESPN_BASE = "https://site.api.espn.com/apis/site/v2/sports/soccer";
+const RIVER_ESPN_ID = "16";
 
 const COMPETENCIAS: Record<string, string> = {
-  "Argentinian Primera Division": "Liga Profesional",
-  "Copa Argentina": "Copa Argentina",
-  "Copa Libertadores": "CONMEBOL Libertadores",
-  "Copa Sudamericana": "CONMEBOL Sudamericana",
+  "arg.1": "Liga Profesional",
+  "arg.copa": "Copa Argentina",
+  "conmebol.libertadores": "CONMEBOL Libertadores",
+  "conmebol.sudamericana": "CONMEBOL Sudamericana",
 };
 
-function traducirCompetencia(liga?: string) {
-  if (!liga) return "Competencia";
-  return COMPETENCIAS[liga] ?? liga;
-}
+type EspnEvent = {
+  id: string;
+  date: string;
+  timeValid?: boolean;
+  league?: { slug?: string; shortName?: string };
+  competitions: {
+    venue?: { fullName?: string };
+    competitors: {
+      homeAway: "home" | "away";
+      team: { id: string; displayName: string };
+    }[];
+  }[];
+};
 
-function mapEvent(event: SportsDbEvent): Partido {
-  const esLocal = isRiver(event.strHomeTeam);
-  const rival = esLocal ? event.strAwayTeam : event.strHomeTeam;
-  // TheSportsDB informa la hora en UTC; sin hora, asumimos 21 hs de Argentina.
-  const fecha =
-    event.strTime && event.strTime !== "00:00:00"
-      ? `${event.dateEvent}T${event.strTime.slice(0, 8)}Z`
-      : `${event.dateEvent}T21:00:00-03:00`;
+function mapEvent(event: EspnEvent): Partido {
+  const { competitors, venue } = event.competitions[0];
+  const local = competitors.find((c) => c.homeAway === "home");
+  const esLocal = local?.team.id === RIVER_ESPN_ID;
+  const rival = competitors.find((c) => c.team.id !== RIVER_ESPN_ID);
+  const slug = event.league?.slug ?? "";
 
   return {
-    id: event.idEvent,
-    rival,
-    fecha,
-    competencia: traducirCompetencia(event.strLeague),
+    id: event.id,
+    rival: rival?.team.displayName ?? "A confirmar",
+    fecha: event.date,
+    horaConfirmada: event.timeValid !== false,
+    competencia: COMPETENCIAS[slug] ?? event.league?.shortName ?? "Competencia",
     esLocal,
     estadio:
-      event.strVenue?.replace("Mâs", "Más") ||
-      (esLocal ? "Estadio Más Monumental" : "A confirmar"),
+      venue?.fullName || (esLocal ? "Estadio Más Monumental" : "A confirmar"),
   };
 }
 
@@ -93,27 +61,40 @@ function fetchCacheInit(): RequestInit {
   return { next: { revalidate: 21600 } };
 }
 
-export async function getPartidosFromFootballApi(): Promise<Partido[]> {
-  const key = process.env.FOOTBALL_API_KEY || "3";
-  const url = `https://www.thesportsdb.com/api/v1/json/${key}/eventsnext.php?id=${RIVER_TEAM_ID}`;
-
-  try {
-    const response = await fetch(url, fetchCacheInit());
-    if (!response.ok) {
-      throw new Error(`Football API ${response.status}`);
-    }
-
-    const data = (await response.json()) as { events?: SportsDbEvent[] | null };
-    const events = data.events ?? [];
-    if (events.length === 0) {
-      return FALLBACK_PARTIDOS;
-    }
-
-    return events.map(mapEvent);
-  } catch (error) {
-    console.error("Error al obtener partidos:", error);
-    return FALLBACK_PARTIDOS;
+async function getEventosDeCompetencia(slug: string): Promise<EspnEvent[]> {
+  const url = `${ESPN_BASE}/${slug}/teams/${RIVER_ESPN_ID}/schedule?fixture=true`;
+  const response = await fetch(url, fetchCacheInit());
+  if (!response.ok) {
+    throw new Error(`ESPN ${slug} ${response.status}`);
   }
+  const data = (await response.json()) as { events?: EspnEvent[] };
+  return data.events ?? [];
+}
+
+export async function getPartidosFromFootballApi(): Promise<Partido[]> {
+  const resultados = await Promise.allSettled(
+    Object.keys(COMPETENCIAS).map(getEventosDeCompetencia)
+  );
+
+  const eventos = new Map<string, EspnEvent>();
+  for (const resultado of resultados) {
+    if (resultado.status === "rejected") {
+      console.error("Error al obtener partidos:", resultado.reason);
+      continue;
+    }
+    for (const evento of resultado.value) {
+      eventos.set(evento.id, evento);
+    }
+  }
+
+  return [...eventos.values()]
+    .map(mapEvent)
+    .sort((a, b) => new Date(a.fecha).getTime() - new Date(b.fecha).getTime());
+}
+
+function soloProximos(partidos: Partido[]) {
+  const ahora = Date.now();
+  return partidos.filter((partido) => new Date(partido.fecha).getTime() > ahora);
 }
 
 export async function getPartidos(): Promise<Partido[]> {
@@ -124,22 +105,22 @@ export async function getPartidos(): Promise<Partido[]> {
       throw new Error(`Local partidos API ${response.status}`);
     }
 
-    return (await response.json()) as Partido[];
+    return soloProximos((await response.json()) as Partido[]);
   } catch (error) {
     console.error("Fallback a fetch directo de partidos:", error);
-    return getPartidosFromFootballApi();
+    return soloProximos(await getPartidosFromFootballApi());
   }
 }
 
-export function formatFechaPartido(iso: string) {
-  const date = new Date(iso);
-  return new Intl.DateTimeFormat("es-AR", {
+export function formatFechaPartido(partido: Pick<Partido, "fecha" | "horaConfirmada">) {
+  const date = new Date(partido.fecha);
+  const horaConfirmada = partido.horaConfirmada !== false;
+  const fecha = new Intl.DateTimeFormat("es-AR", {
     weekday: "short",
     day: "2-digit",
     month: "short",
-    hour: "2-digit",
-    minute: "2-digit",
-    hourCycle: "h23",
+    ...(horaConfirmada && { hour: "2-digit", minute: "2-digit", hourCycle: "h23" }),
     timeZone: "America/Argentina/Buenos_Aires",
   }).format(date);
+  return horaConfirmada ? fecha : `${fecha} · hora a confirmar`;
 }

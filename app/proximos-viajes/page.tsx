@@ -4,7 +4,7 @@ import { ProximosViajesSection } from "@/components/ProximosViajesSection";
 import { getInstitucional } from "@/lib/content";
 import { getPartidos } from "@/lib/partidos";
 
-export const revalidate = 21600;
+export const revalidate = 3600;
 
 export const metadata: Metadata = {
   title: "Próximos viajes y partidos",

@@ -69,7 +69,7 @@ export default async function RootLayout({
           <GtmPageviewTracker />
         </Suspense>
         <ProximamenteProvider>
-          <Navbar proximo={partidos[0]} />
+          <Navbar proximo={partidos.find((partido) => partido.esLocal)} />
           <main className="flex-1">{children}</main>
           <Footer sede={institucional.sede} />
         </ProximamenteProvider>
