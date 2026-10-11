@@ -90,8 +90,8 @@ export default function EntradasPage() {
           Plata.
         </p>
 
-        <aside className="mt-10 rounded-2xl border border-river-gold/40 bg-river-gold/5 p-5 sm:p-6">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-river-gold">
+        <aside className="mt-10 rounded-2xl border border-river-red/40 bg-river-red/5 p-5 sm:p-6">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-river-red">
             Importante
           </p>
           <ul className="mt-3 space-y-2 text-sm leading-relaxed text-white/80">

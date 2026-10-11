@@ -10,14 +10,14 @@ type Props = {
 
 export function ProximamenteBanner({ titulo, cuerpo }: Props) {
   return (
-    <aside className="border-y border-river-red/30 bg-gradient-to-r from-river-red/15 via-black to-river-gold/10">
+    <aside className="border-y border-river-red/30 bg-gradient-to-r from-river-red/15 via-black to-river-red/10">
       <button
         type="button"
         onClick={() => sendGTMEvent({ event: "proximamente_click" })}
         className="block w-full cursor-pointer text-left"
       >
         <div className="mx-auto flex max-w-6xl flex-col gap-2 px-4 py-4 sm:flex-row sm:items-center sm:gap-6 sm:px-6">
-          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-river-gold/40 bg-black/40 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-river-gold">
+          <span className="inline-flex w-fit items-center gap-2 rounded-full border border-river-red/40 bg-black/40 px-3 py-1 text-[10px] font-semibold uppercase tracking-[0.18em] text-white">
             <span className="h-1.5 w-1.5 animate-pulse rounded-full bg-river-red" aria-hidden />
             Próximamente
           </span>

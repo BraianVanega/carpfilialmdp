@@ -23,7 +23,7 @@ type Props = {
 function BandaMuyPronto() {
   return (
     <span
-      className="pointer-events-none absolute -inset-x-3 top-1/2 -translate-y-1/2 -rotate-[14deg] bg-river-gold text-center text-[7px] font-bold uppercase leading-[11px] tracking-[0.24em] text-black shadow"
+      className="pointer-events-none absolute -inset-x-3 top-1/2 -translate-y-1/2 -rotate-[14deg] bg-black text-center text-[7px] font-bold uppercase leading-[11px] tracking-[0.24em] text-white shadow"
     >
       Muy pronto
     </span>

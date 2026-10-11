@@ -28,7 +28,7 @@ export function PartidoCard({ partido, destacado = false }: Props) {
         {partido.competencia}
       </p>
       {!partido.esLocal ? (
-        <span className="mt-3 self-start rounded bg-white/10 px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-river-gold">
+        <span className="mt-3 self-start rounded bg-river-red px-2 py-1 text-[10px] font-semibold uppercase tracking-[0.16em] text-white">
           Lo vemos en la Filial
         </span>
       ) : null}
