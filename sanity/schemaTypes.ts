@@ -12,19 +12,6 @@ export const institucionalSchema = {
     { name: "heroSubtitulo", type: "text", title: "Hero — bajada" },
     { name: "historiaTitulo", type: "string", title: "Historia — título" },
     { name: "historiaCuerpo", type: "array", of: [{ type: "text" }], title: "Historia — párrafos" },
-    {
-      name: "estadisticas",
-      type: "array",
-      of: [
-        {
-          type: "object",
-          fields: [
-            { name: "valor", type: "string" },
-            { name: "etiqueta", type: "string" },
-          ],
-        },
-      ],
-    },
     { name: "actividadesTitulo", type: "string" },
     {
       name: "actividades",

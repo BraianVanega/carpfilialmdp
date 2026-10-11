@@ -42,22 +42,6 @@ export function Hero({ institucional }: Props) {
             Ver institucional
           </Link>
         </div>
-
-        <dl className="mt-12 grid max-w-xl grid-cols-3 gap-3">
-          {institucional.estadisticas.map((item) => (
-            <div
-              key={item.etiqueta}
-              className="rounded-lg border border-white/10 bg-black/50 px-3 py-4 backdrop-blur-sm"
-            >
-              <dt className="text-[10px] uppercase tracking-[0.16em] text-white/50">
-                {item.etiqueta}
-              </dt>
-              <dd className="mt-1 font-display text-2xl text-white sm:text-3xl">
-                {item.valor}
-              </dd>
-            </div>
-          ))}
-        </dl>
       </div>
 
       <div className="pointer-events-none absolute right-6 top-28 hidden rotate-12 rounded-md border border-white/20 bg-black/60 px-3 py-2 text-[10px] font-bold uppercase tracking-[0.3em] text-white sm:block">

@@ -22,16 +22,6 @@ export function IdentitySection({ institucional }: Props) {
               <p key={parrafo.slice(0, 24)}>{parrafo}</p>
             ))}
           </div>
-          <ul className="mt-8 flex flex-wrap gap-6">
-            {institucional.estadisticas.map((item) => (
-              <li key={item.etiqueta}>
-                <p className="font-display text-2xl text-white">{item.valor}</p>
-                <p className="text-[11px] uppercase tracking-[0.16em] text-white/50">
-                  {item.etiqueta}
-                </p>
-              </li>
-            ))}
-          </ul>
         </div>
         <div className="relative">
           <div className="absolute -left-3 -top-3 z-10 rounded-sm bg-river-red px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-white">
@@ -40,7 +30,7 @@ export function IdentitySection({ institucional }: Props) {
           <div className="overflow-hidden rounded-2xl border border-white/10">
             <Image
               src="/images/identidad.jpg"
-              alt="Pared de escudos de River Plate en la sede de la filial"
+              alt="Pared de escudos de River Plate en la filial"
               width={1200}
               height={800}
               className="h-[360px] w-full object-cover sm:h-[440px]"

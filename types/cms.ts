@@ -13,11 +13,6 @@ export type Media = {
   sanity?: SanityImage;
 };
 
-export type Estadistica = {
-  valor: string;
-  etiqueta: string;
-};
-
 export type Actividad = {
   titulo: string;
   descripcion: string;
@@ -47,7 +42,6 @@ export type Institucional = {
   heroSubtitulo: string;
   historiaTitulo: string;
   historiaCuerpo: string[];
-  estadisticas: Estadistica[];
   actividadesTitulo: string;
   actividades: Actividad[];
   sedeTitulo: string;

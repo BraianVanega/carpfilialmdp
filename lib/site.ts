@@ -11,6 +11,6 @@ export function getSiteUrl() {
 }
 
 export function whatsappLink(message: string) {
-  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5492230000000";
+  const number = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "5492234461253";
   return `https://wa.me/${number}?text=${encodeURIComponent(message)}`;
 }

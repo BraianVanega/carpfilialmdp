@@ -14,7 +14,7 @@ export function SedeMapSection({ sede }: Props) {
             Ubicación
           </p>
           <h2 className="mt-3 font-display text-3xl uppercase text-white sm:text-5xl">
-            Vení a conocernos a la sede oficial
+            Vení a conocernos a la filial oficial
           </h2>
           <div className="mt-4 h-1 w-14 bg-river-red" />
           <div className="mt-8 overflow-hidden rounded-2xl border border-white/10">
@@ -39,7 +39,7 @@ export function SedeMapSection({ sede }: Props) {
           <p className="mt-4 text-sm text-white/65">{sede.telefono}</p>
           <a
             href={whatsappLink(
-              "Hola, quiero consultar horarios de la sede de la Filial Enzo Francescoli."
+              "Hola, quiero consultar horarios de la Filial Enzo Francescoli."
             )}
             target="_blank"
             rel="noreferrer"

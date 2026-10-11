@@ -1,3 +1,6 @@
+"use client";
+
+import { sendGTMEvent } from "@next/third-parties/google";
 import type { Partido } from "@/lib/partidos";
 import { formatFechaPartido } from "@/lib/partidos";
 import { whatsappLink } from "@/lib/site";
@@ -9,7 +12,8 @@ type Props = {
 
 export function PartidoCard({ partido, destacado = false }: Props) {
   const condicion = partido.esLocal ? "Local · Monumental" : "Visitante";
-  const mensaje = `Hola, quiero consultar por el viaje de River vs ${partido.rival} (${formatFechaPartido(partido.fecha)}).`;
+  const tituloViaje = `River Plate vs ${partido.rival}`;
+  const mensaje = `Hola, quiero consultar por el viaje de ${tituloViaje} (${formatFechaPartido(partido.fecha)}).`;
 
   return (
     <article className="relative flex h-full flex-col rounded-2xl border border-white/10 bg-[#141414] p-5">
@@ -22,7 +26,7 @@ export function PartidoCard({ partido, destacado = false }: Props) {
         {partido.competencia}
       </p>
       <h3 className="mt-3 font-display text-2xl uppercase leading-tight text-white">
-        River Plate vs {partido.rival}
+        {tituloViaje}
       </h3>
       <dl className="mt-5 space-y-2 text-sm text-white/65">
         <div className="flex justify-between gap-3">
@@ -42,6 +46,9 @@ export function PartidoCard({ partido, destacado = false }: Props) {
         href={whatsappLink(mensaje)}
         target="_blank"
         rel="noreferrer"
+        onClick={() =>
+          sendGTMEvent({ event: "whatsapp_click", viaje: tituloViaje })
+        }
         className={`mt-6 inline-flex h-11 items-center justify-center rounded-md px-4 text-xs font-semibold uppercase tracking-[0.14em] transition ${
           destacado
             ? "bg-river-red text-white hover:bg-red-700"

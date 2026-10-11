@@ -28,8 +28,8 @@ export function Footer({ sede }: Props) {
             </div>
           </div>
           <p className="mt-4 max-w-md text-sm leading-relaxed text-white/60">
-            Comunidad millonaria de Mar del Plata. Viajes al Monumental, peña en
-            la sede y un lugar para vivir a River en familia.
+            Comunidad millonaria de Mar del Plata. Viajes al Monumental, encuentros
+            en la filial y un lugar para vivir a River en familia.
           </p>
         </div>
 
@@ -51,7 +51,7 @@ export function Footer({ sede }: Props) {
             </li>
             <li>
               <Link href="/#sede" className="hover:text-white">
-                Sede
+                Ubicación
               </Link>
             </li>
           </ul>

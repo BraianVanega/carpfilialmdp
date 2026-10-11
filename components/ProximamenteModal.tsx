@@ -64,7 +64,7 @@ export function ProximamenteProvider({ children }: { children: ReactNode }) {
             <p className="mt-3 text-sm leading-relaxed text-white/70">
               Estamos preparando el registro propio y los viajes con beneficios
               exclusivos para socios de la filial. Mientras tanto, escribinos por
-              WhatsApp o acercate a la sede.
+              WhatsApp o acercate a la filial.
             </p>
             <button
               type="button"

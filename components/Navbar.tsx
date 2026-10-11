@@ -11,7 +11,7 @@ const NAV_LINKS = [
   { href: "/#identidad", label: "La filial" },
   { href: "/#que-hacemos", label: "Qué hacemos" },
   { href: "/proximos-viajes", label: "Viajes" },
-  { href: "/#sede", label: "Sede" },
+  { href: "/#sede", label: "Ubicación" },
   { href: "/#contacto", label: "Contacto" },
 ];
 

@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
+import { GoogleTagManager } from "@next/third-parties/google";
 import { Inter, Oswald } from "next/font/google";
+import { Suspense } from "react";
 import { Footer } from "@/components/Footer";
+import { GtmPageviewTracker } from "@/components/GtmPageviewTracker";
 import { Navbar } from "@/components/Navbar";
 import { ProximamenteProvider } from "@/components/ProximamenteModal";
 import { getInstitucional } from "@/lib/content";
@@ -27,7 +30,7 @@ export const metadata: Metadata = {
     template: "%s | Filial Enzo Francescoli",
   },
   description:
-    "Filial oficial de River Plate en Mar del Plata. Historia, sede, comunidad y próximas salidas al Monumental.",
+    "Filial oficial de River Plate en Mar del Plata. Historia, comunidad y próximas salidas al Monumental.",
   icons: {
     icon: [{ url: "/icon.png", type: "image/png" }],
     apple: [{ url: "/apple-icon.png", type: "image/png" }],
@@ -38,13 +41,13 @@ export const metadata: Metadata = {
     siteName: "Filial Enzo Francescoli",
     title: "Filial Enzo Francescoli | River Plate Mar del Plata",
     description:
-      "Filial oficial de River Plate en Mar del Plata. Historia, sede, comunidad y próximas salidas al Monumental.",
+      "Filial oficial de River Plate en Mar del Plata. Historia, comunidad y próximas salidas al Monumental.",
   },
   twitter: {
     card: "summary_large_image",
     title: "Filial Enzo Francescoli | River Plate Mar del Plata",
     description:
-      "Filial oficial de River Plate en Mar del Plata. Historia, sede, comunidad y próximas salidas al Monumental.",
+      "Filial oficial de River Plate en Mar del Plata. Historia, comunidad y próximas salidas al Monumental.",
   },
 };
 
@@ -62,6 +65,10 @@ export default async function RootLayout({
       className={`${body.variable} ${display.variable} h-full antialiased`}
     >
       <body className="flex min-h-full flex-col bg-background font-sans text-foreground">
+        <GoogleTagManager gtmId={process.env.NEXT_PUBLIC_GTM_ID!} />
+        <Suspense fallback={null}>
+          <GtmPageviewTracker />
+        </Suspense>
         <ProximamenteProvider>
           <Navbar proximo={partidos[0]} />
           <main className="flex-1">{children}</main>

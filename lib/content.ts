@@ -1,59 +1,53 @@
-import type { Institucional, Viaje } from "@/types/cms";
 import { institucionalQuery, sanityClient, viajesQuery } from "@/lib/sanity";
+import type { Institucional, Viaje } from "@/types/cms";
 
 export const mockInstitucional: Institucional = {
-  heroEyebrow: "Filial oficial · Mar del Plata · 1901",
-  heroTitulo: "De Mar del Plata al Monumental: la pasión no tiene distancias",
+  heroEyebrow: "Única filial oficial de Mar del Plata",
+  heroTitulo: "De Mar del Plata al Monumental",
   heroSubtitulo:
-    "Somos la Filial Enzo Francescoli, comunidad millonaria de Mar del Plata. Viajamos juntos, vivimos cada domingo y llevamos a River en el pecho — lejos del Monumental, pero nunca lejos de casa.",
+    "Somos la Filial Enzo Francescoli, el punto de encuentro de los hinchas de River en Mar del Plata. Viajamos juntos al Monumental, vivimos cada partido y llevamos los colores en el alma — lejos del estadio, pero nunca lejos de River.",
   historiaTitulo: "Nuestra historia & sentimiento millonario",
   historiaCuerpo: [
-    "La Filial Enzo Francescoli es el punto de encuentro de los hinchas de River Plate en Mar del Plata. Nacimos para que la distancia no apague la pasión: cada salida al Monumental, cada transmisión en la sede y cada asado post partido refuerzan lo que somos.",
-    "Acá no venís solo a mirar un partido. Venís a pertenecer. A cantar el himno con vecinos, a conocer nuevas generaciones de millonarios y a viajar con la seguridad de que siempre hay un lugar en el micro — y un abrazo al volver.",
-  ],
-  estadisticas: [
-    { valor: "+12", etiqueta: "Años de filial" },
-    { valor: "+180", etiqueta: "Socios activos" },
-    { valor: "100%", etiqueta: "Pasión millonaria" },
+    "La Filial Enzo Francescoli es el punto de encuentro de los hinchas de River Plate en Mar del Plata. Nacimos para que la distancia no apague la pasión.",
+    "Acá no venís solo a mirar un partido. Venís a pertenecer. Acá no venís solo a mirar un partido. Venís a ser parte de una familia cuyos valores, pasión y sentido de pertenencia pasan de generación en generación.",
   ],
   actividadesTitulo: "Qué hacemos en la filial",
   actividades: [
     {
-      titulo: "Viajes oficiales al Monumental",
-      descripcion:
-        "Micros organizados desde Mar del Plata para cada partido de River. Salida conjunta, butacas coordinadas y la bandera de la filial en la 12.",
+      titulo: "Viajes al Monumental",
+      descripcion: "Micros desde Mar del Plata para cada partido de River. ",
       icono: "viajes",
     },
     {
-      titulo: "Transmisiones y peña en la sede",
+      titulo: "Transmisiones en la filial",
       descripcion:
-        "Cuando no viajamos, la sede se llena. Pantalla grande, cantitos y la mesa puesta para vivir el partido como si estuviéramos en Núñez.",
+        "Cuando no viajamos, la filial se llena. Pantalla y buffet abierto para vivir el partido como si estuviéramos en Núñez.",
       icono: "transmisiones",
     },
     {
-      titulo: "Comunidad & peña millonaria",
+      titulo: "Comunidad millonaria",
       descripcion:
-        "Asados, merchandising, actividades para pibes y un espacio para que el que llega de otra ciudad también se sienta en casa.",
+        "Juntadas, fiestas, merchandising y actividades en un espacio propio para que el que llega de otra ciudad también se sienta en casa.",
       icono: "comunidad",
     },
     {
-      titulo: "Sede social en Mar del Plata",
+      titulo: "Nuestra filial en Mar del Plata",
       descripcion:
-        "Un rincón propio: camisetas en la pared, copas, recuerdos de cada gira y la puerta abierta para quien lleve a River en el pecho.",
+        "Un rincón propio: camisetas, copas, recuerdos y la puerta abierta para quien lleve a River en el corazón.",
       icono: "sede",
     },
   ],
-  sedeTitulo: "Nuestra sede & rincones de pasión",
+  sedeTitulo: "Nuestra filial & rincones de pasión",
   sede: {
-    nombre: "Sede social Enzo Francescoli",
-    direccion: "Av. Independencia 3450",
-    ciudad: "Mar del Plata, Buenos Aires",
-    horarios: "Lun a Vie 18 a 22 hs · Sábados de partido",
-    telefono: "+54 223 000-0000",
+    nombre: "Filial Enzo Francescoli",
+    direccion: "Deán Funes 2221",
+    ciudad: "B7600CFM Mar del Plata, Buenos Aires",
+    horarios: "Lun a Vie 8 a 17 hs · Noches y días de partido",
+    telefono: "+54 9 223 446-1253",
     email: "hola@filialenzofrancescoli.com",
     instagram: "https://instagram.com/filialenzofrancescoli",
     mapaEmbedUrl:
-      "https://maps.google.com/maps?q=Mar%20del%20Plata%20Buenos%20Aires&t=&z=13&ie=UTF8&iwloc=&output=embed",
+      "https://maps.google.com/maps?q=Filial%20Enzo%20Francescoli%20Mar%20Del%20Plata%40-37.996536,-57.5646371&z=17&output=embed",
     fotos: [
       {
         titulo: "El salón de la familia millonaria",
@@ -66,28 +60,28 @@ export const mockInstitucional: Institucional = {
         titulo: "De River de corazón",
         imagen: {
           url: "/images/identidad.jpg",
-          alt: "Pared con escudos históricos de River Plate en la sede",
+          alt: "Pared con escudos históricos de River Plate en la filial",
         },
       },
       {
-        titulo: "Barra de la peña",
+        titulo: "Barra de la filial",
         imagen: {
           url: "/images/sede/bar.jpg",
-          alt: "Barra de la sede de la filial en Mar del Plata",
+          alt: "Barra de la filial en Mar del Plata",
         },
       },
       {
         titulo: "Rincón de las camisetas",
         imagen: {
           url: "/images/sede/camisetas.jpg",
-          alt: "Camisetas de River Plate colgadas en la sede",
+          alt: "Camisetas de River Plate colgadas en la filial",
         },
       },
     ],
   },
   proximamenteTitulo: "Muy pronto: registro propio con recompensas",
   proximamenteCuerpo:
-    "Estamos preparando el acceso de socios: historial de viajes, beneficios exclusivos y reserva de butaca. Mientras tanto, consultanos por WhatsApp y acercate a la sede.",
+    "Estamos preparando el acceso de socios: historial de viajes, beneficios exclusivos y reserva de butaca. Mientras tanto, consultanos por WhatsApp y acercate a la filial.",
 };
 
 export const mockViajes: Viaje[] = [
@@ -95,8 +89,9 @@ export const mockViajes: Viaje[] = [
     titulo: "Clásico en el Monumental",
     partidoDescripcion: "River Plate vs Boca Juniors",
     fechaSalida: "2026-10-11T06:00:00-03:00",
-    puntoEncuentro: "Sede social · Av. Independencia 3450",
-    descripcion: "Salida especial para el Superclásico. Micro ida y vuelta, coordinación de butacas y bandera de la filial.",
+    puntoEncuentro: "Filial · Deán Funes 2221",
+    descripcion:
+      "Salida especial para el Superclásico. Micro ida y vuelta, coordinación de butacas y bandera de la filial.",
     imagen: {
       url: "/images/hero-estadio.jpg",
       alt: "Estadio Monumental de River Plate",
@@ -111,7 +106,9 @@ export async function getInstitucional(): Promise<Institucional> {
   }
 
   try {
-    const data = await sanityClient.fetch<Institucional | null>(institucionalQuery);
+    const data = await sanityClient.fetch<Institucional | null>(
+      institucionalQuery,
+    );
     return data ?? mockInstitucional;
   } catch (error) {
     console.error("Sanity institucional:", error);

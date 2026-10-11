@@ -34,7 +34,6 @@ export const institucionalQuery = `*[_type == "institucional"][0]{
   heroSubtitulo,
   historiaTitulo,
   historiaCuerpo,
-  estadisticas,
   actividadesTitulo,
   actividades,
   sedeTitulo,
