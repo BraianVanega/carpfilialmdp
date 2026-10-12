@@ -45,6 +45,11 @@ export function Footer({ sede }: Props) {
               </Link>
             </li>
             <li>
+              <Link href="/historia" className="hover:text-white">
+                Nuestra historia
+              </Link>
+            </li>
+            <li>
               <Link href="/proximos-viajes" className="hover:text-white">
                 Próximos viajes
               </Link>
