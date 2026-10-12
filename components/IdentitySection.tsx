@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from "next/link";
 import type { Institucional } from "@/types/cms";
 
 type Props = {
@@ -22,6 +23,12 @@ export function IdentitySection({ institucional }: Props) {
               <p key={parrafo.slice(0, 24)}>{parrafo}</p>
             ))}
           </div>
+          <Link
+            href="/historia"
+            className="mt-8 inline-flex h-12 items-center justify-center rounded-md px-6 text-xs font-semibold uppercase tracking-[0.16em] text-white ring-1 ring-white/30 transition hover:bg-white/5"
+          >
+            Conocé nuestra historia
+          </Link>
         </div>
         <div className="relative">
           <div className="absolute -left-3 -top-3 z-10 rounded-sm bg-river-red px-3 py-1 text-[10px] font-bold uppercase tracking-[0.2em] text-white">

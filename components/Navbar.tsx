@@ -9,6 +9,7 @@ import type { Partido } from "@/lib/partidos";
 
 const NAV_LINKS = [
   { href: "/#identidad", label: "La filial" },
+  { href: "/historia", label: "Historia" },
   { href: "/#que-hacemos", label: "Qué hacemos" },
   { href: "/proximos-viajes", label: "Viajes" },
   { href: "/entradas", label: "Entradas" },
