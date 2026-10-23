@@ -71,13 +71,6 @@ export const mockInstitucional: Institucional = {
         },
       },
       {
-        titulo: "Barra de la filial",
-        imagen: {
-          url: "/images/sede/camisetas.jpg",
-          alt: "Barra de la filial en Mar del Plata",
-        },
-      },
-      {
         titulo: "La vitrina millonaria",
         imagen: {
           url: "/images/sede/salon.jpg",
