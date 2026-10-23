@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 
 export const metadata: Metadata = {
@@ -160,6 +161,29 @@ const HITOS: { anio: string; titulo: string; parrafos: string[]; destacado?: boo
     ],
   },
   {
+    anio: "2014",
+    titulo: "36.º aniversario",
+    parrafos: [
+      "En enero la filial festejó su 36.º aniversario con la presencia de Enzo Francescoli, el presidente del club Rodolfo D’Onofrio, Matías Patanian y representantes de la Comisión de Filiales. El canal oficial de River Plate publicó un video del festejo.",
+    ],
+  },
+  {
+    anio: "2016",
+    titulo: "Amadeo Carrizo en Mar del Plata",
+    parrafos: [
+      "Por iniciativa de la filial, Amadeo Carrizo celebró en Mar del Plata el Día Internacional del Hincha de River en una cena en el restaurante del club Sporting, con más de 150 personas.",
+      "El maestro Amadeo se sacó fotos con todos los presentes, firmó autógrafos y contó anécdotas de su época de arquero millonario. Durante la noche se sortearon una réplica de 34 centímetros de la Copa Libertadores y réplicas de las medallas de la Libertadores y de la Sudamericana.",
+    ],
+  },
+  {
+    anio: "2018",
+    titulo: "Día del Niño solidario",
+    parrafos: [
+      "La filial celebró el Día del Niño en el comedor del Hogar Brazos Abiertos, en 10 de Febrero 7955, sobre el camino viejo a Miramar. Como cada año, los integrantes de la filial visitan a los chicos del hogar y convocan a la comunidad marplatense a sumar donaciones de alimentos no perecederos, ropa, juguetes y golosinas.",
+      "Durante la jornada se entregó todo lo reunido, hubo un almuerzo y los socios de la filial organizaron juegos de recreación, entre ellos un inflable para los chicos.",
+    ],
+  },
+  {
     anio: "2022",
     titulo: "Reunión de filiales y la llegada de Gallardo",
     parrafos: [
@@ -167,6 +191,31 @@ const HITOS: { anio: string; titulo: string; parrafos: string[]; destacado?: boo
       "El 23 de julio recibimos al equipo de Marcelo Gallardo en las puertas del Hotel Costa Galana. La organización y el colorido fueron noticia en portales nacionales e internacionales.",
     ],
   },
+];
+
+const FOTOS: { src: string; alt: string; width: number; height: number }[] = [
+  { src: "archivo-primeros-anos.jpg", alt: "Socios y dirigentes en los primeros años de la filial", width: 1600, height: 1044 },
+  { src: "bienvenida-plantel.jpg", alt: "La filial le da la bienvenida al plantel profesional de River", width: 1600, height: 1070 },
+  { src: "francescoli-plaqueta.jpg", alt: "Enzo Francescoli recibe una plaqueta de la filial", width: 1101, height: 1600 },
+  { src: "conferencia-plantel.jpg", alt: "Conferencia de prensa con el plantel profesional de River", width: 1600, height: 1048 },
+  { src: "entrega-reconocimiento.jpg", alt: "Entrega de un reconocimiento a un jugador de River", width: 1087, height: 1600 },
+  { src: "brindis-cena.jpg", alt: "Brindis en una cena de la filial", width: 1600, height: 1056 },
+  { src: "brindis-torta.jpg", alt: "Brindis con la torta de la filial", width: 1600, height: 1099 },
+  { src: "plaqueta-delia-1999.jpg", alt: "Plaqueta de reconocimiento a Cristian D’Elia, diciembre de 1999", width: 1600, height: 1113 },
+  { src: "homenaje-hernan-diaz-2001.jpg", alt: "Homenaje a Hernán Díaz, 6 de septiembre de 2001", width: 1600, height: 1140 },
+  { src: "bandera-monumental.jpg", alt: "La bandera de la filial en el Monumental", width: 960, height: 1280 },
+  { src: "hinchas-monumental.jpg", alt: "Hinchas de la filial antes de un partido", width: 1600, height: 1200 },
+  { src: "encuentro-river.jpg", alt: "Encuentro con dirigentes en River Plate", width: 1600, height: 1200 },
+  { src: "encuentro-sede.jpg", alt: "Encuentro de socios en la sede", width: 1600, height: 1200 },
+  { src: "jornada-solidaria-grupo.jpg", alt: "Integrantes de la filial y chicos frente a la bandera en una jornada solidaria", width: 1600, height: 1200 },
+  { src: "jornada-solidaria-metegol.jpg", alt: "Chicos jugando al metegol en una jornada solidaria", width: 960, height: 1280 },
+  { src: "jornada-solidaria-ping-pong.jpg", alt: "Foto grupal junto a la mesa de ping pong", width: 1600, height: 1200 },
+  { src: "jornada-solidaria-tenis-de-mesa.jpg", alt: "Una nena juega al ping pong con un socio de la filial", width: 960, height: 1280 },
+  { src: "jornada-solidaria-paleta.jpg", alt: "Dos nenas juegan al ping pong frente a las banderas de la filial", width: 1600, height: 1200 },
+  { src: "jornada-solidaria-juegos.jpg", alt: "Juegos en la calle durante una jornada solidaria", width: 1600, height: 1200 },
+  { src: "jornada-solidaria-soga.jpg", alt: "Chicos saltando la soga con integrantes de la filial", width: 1600, height: 1200 },
+  { src: "jornada-solidaria-barrio.jpg", alt: "Jornada solidaria en el barrio con banderas de la filial", width: 1600, height: 1200 },
+  { src: "jornada-solidaria-calle.jpg", alt: "Integrantes de la filial acompañan a los chicos en la calle", width: 1200, height: 1600 },
 ];
 
 export default function HistoriaPage() {
@@ -221,6 +270,34 @@ export default function HistoriaPage() {
             </li>
           ))}
         </ol>
+
+        <div className="mt-20">
+          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-river-red">
+            Galería
+          </p>
+          <h2 className="mt-3 font-display text-2xl uppercase text-white sm:text-4xl">
+            Nuestra historia en fotos
+          </h2>
+          <div className="mt-4 h-1 w-14 bg-river-red" />
+
+          <div className="mt-8 columns-2 gap-3 sm:gap-4 lg:columns-3">
+            {FOTOS.map((foto) => (
+              <figure
+                key={foto.src}
+                className="mb-3 break-inside-avoid overflow-hidden rounded-2xl border border-white/10 bg-[#141414] sm:mb-4"
+              >
+                <Image
+                  src={`/images/historia/${foto.src}`}
+                  alt={foto.alt}
+                  width={foto.width}
+                  height={foto.height}
+                  sizes="(min-width: 1024px) 360px, 50vw"
+                  className="h-auto w-full"
+                />
+              </figure>
+            ))}
+          </div>
+        </div>
 
         <aside className="mt-16 rounded-2xl border border-river-red/40 bg-river-red/5 p-5 sm:p-8">
           <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-river-red">
