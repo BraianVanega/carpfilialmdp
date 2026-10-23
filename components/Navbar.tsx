@@ -8,13 +8,10 @@ import { TickerProximoViaje } from "@/components/TickerProximoViaje";
 import type { Partido } from "@/lib/partidos";
 
 const NAV_LINKS = [
-  { href: "/#identidad", label: "La filial" },
   { href: "/historia", label: "Historia" },
-  { href: "/#que-hacemos", label: "Qué hacemos" },
   { href: "/proximos-viajes", label: "Viajes" },
   { href: "/entradas", label: "Entradas" },
   { href: "/asociate", label: "Asociate" },
-  { href: "/#sede", label: "Ubicación" },
   { href: "/#contacto", label: "Contacto" },
 ];
 
@@ -49,7 +46,7 @@ export function Navbar({ proximo }: Props) {
 
       <div className="border-b border-white/10 bg-black/90 backdrop-blur-md">
         <div className="mx-auto flex max-w-6xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
-          <Link href="/" className="flex items-center gap-3" onClick={() => setOpen(false)}>
+          <Link href="/" className="flex shrink-0 items-center gap-3" onClick={() => setOpen(false)}>
             <Image
               src="/images/logo-fef.png"
               alt="Filial Enzo Francescoli"
