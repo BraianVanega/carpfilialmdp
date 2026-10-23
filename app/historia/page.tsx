@@ -310,19 +310,13 @@ export default function HistoriaPage() {
             <p>
               El objetivo de la Filial Enzo Francescoli es construir cada día un
               River más federal, que acerque a los socios e hinchas de Mar del
-              Plata y la zona al mundo riverplatense. Viajamos a ver al primer
-              equipo e informamos sobre entradas y formas de asociarse.
+              Plata y la zona al mundo riverplatense.
             </p>
             <p>
               Hoy la preside Stella Maris Elías, que acompañó a Rodolfo
               D’Onofrio desde su primer mandato como representante de socios. El
               deseo de ella y su grupo de trabajo es ampliar la filial, que ya
               tiene un café, y nos atrevemos a soñar con una segunda planta.
-            </p>
-            <p>
-              Viajamos desde nuestra sede a todos los partidos de local y a los
-              de visitante que permiten público: ya estuvimos en Santiago del
-              Estero, Córdoba y Mendoza, por nombrar algunos.
             </p>
           </div>
         </aside>
