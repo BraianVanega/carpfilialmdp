@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   description:
     "Filial oficial de River Plate en Mar del Plata. Viajes al Monumental, transmisiones de cada partido y comunidad millonaria. Visitanos en Deán Funes 2221.",
   icons: {
-    icon: [{ url: "/icon.png", type: "image/png" }],
+    icon: [{ url: "/icon.png", type: "image/png", sizes: "192x192" }],
     apple: [{ url: "/apple-icon.png", type: "image/png" }],
   },
   openGraph: {
