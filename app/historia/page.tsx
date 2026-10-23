@@ -299,28 +299,6 @@ export default function HistoriaPage() {
           </div>
         </div>
 
-        <aside className="mt-16 rounded-2xl border border-river-red/40 bg-river-red/5 p-5 sm:p-8">
-          <p className="text-[11px] font-semibold uppercase tracking-[0.22em] text-river-red">
-            Hoy
-          </p>
-          <h2 className="mt-3 font-display text-2xl uppercase text-white sm:text-3xl">
-            Todos somos River
-          </h2>
-          <div className="mt-4 max-w-3xl space-y-3 text-sm leading-relaxed text-white/75 sm:text-base">
-            <p>
-              El objetivo de la Filial Enzo Francescoli es construir cada día un
-              River más federal, que acerque a los socios e hinchas de Mar del
-              Plata y la zona al mundo riverplatense.
-            </p>
-            <p>
-              Hoy la preside Stella Maris Elías, que acompañó a Rodolfo
-              D’Onofrio desde su primer mandato como representante de socios. El
-              deseo de ella y su grupo de trabajo es ampliar la filial, que ya
-              tiene un café, y nos atrevemos a soñar con una segunda planta.
-            </p>
-          </div>
-        </aside>
-
         <div className="mt-10 flex flex-col gap-3 sm:flex-row">
           <Link
             href="/proximos-viajes"

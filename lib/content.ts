@@ -144,7 +144,7 @@ export const mockInstitucional: Institucional = {
   },
   proximamenteTitulo: "Muy pronto: registro propio con recompensas",
   proximamenteCuerpo:
-    "Estamos preparando el acceso de socios: historial de viajes, beneficios exclusivos y reserva de butaca. Mientras tanto, consultanos por WhatsApp y acercate a la filial.",
+    "Estamos preparando el acceso de socios: historial de viajes y beneficios exclusivos. Mientras tanto, consultanos por WhatsApp y acercate a la filial.",
 };
 
 export const mockViajes: Viaje[] = [
@@ -154,7 +154,7 @@ export const mockViajes: Viaje[] = [
     fechaSalida: "2026-10-11T06:00:00-03:00",
     puntoEncuentro: "Filial · Deán Funes 2221",
     descripcion:
-      "Salida especial para el Superclásico. Micro ida y vuelta, coordinación de butacas y bandera de la filial.",
+      "Salida especial para el Superclásico. Micro ida y vuelta y bandera de la filial.",
     imagen: {
       url: "/images/hero-estadio.jpg",
       alt: "Estadio Monumental de River Plate",
