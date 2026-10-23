@@ -60,6 +60,11 @@ export function Footer({ sede }: Props) {
               </Link>
             </li>
             <li>
+              <Link href="/asociate" className="hover:text-white">
+                Cómo asociarte
+              </Link>
+            </li>
+            <li>
               <Link href="/#sede" className="hover:text-white">
                 Ubicación
               </Link>

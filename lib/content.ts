@@ -64,6 +64,13 @@ export const mockInstitucional: Institucional = {
         },
       },
       {
+        titulo: "Escudos de toda la historia",
+        imagen: {
+          url: "/images/sede/pared-escudos.jpg",
+          alt: "Pared con los escudos históricos de River Plate",
+        },
+      },
+      {
         titulo: "Barra de la filial",
         imagen: {
           url: "/images/sede/camisetas.jpg",
@@ -75,6 +82,69 @@ export const mockInstitucional: Institucional = {
         imagen: {
           url: "/images/sede/salon.jpg",
           alt: "Vitrina con merchandising de la Filial Enzo Francescoli",
+        },
+      },
+      {
+        titulo: "El café de la filial",
+        imagen: {
+          url: "/images/sede/cafe.jpg",
+          alt: "Barra del café de la filial con el cartel Filial Enzo Francescoli Mar del Plata",
+        },
+      },
+      {
+        titulo: "El salón",
+        imagen: {
+          url: "/images/sede/salon-mural.jpg",
+          alt: "Salón con mesas rojas y negras y un mural de Enzo Francescoli",
+        },
+      },
+      {
+        titulo: "Nuestro rincón",
+        imagen: {
+          url: "/images/sede/rincon-logo.jpg",
+          alt: "Mesa alta bajo el logo de la filial con la frase De River de corazón",
+        },
+      },
+      {
+        titulo: "Los bombos de la filial",
+        imagen: {
+          url: "/images/sede/bombos.jpg",
+          alt: "Bombos y redoblantes de la filial en el salón",
+        },
+      },
+      {
+        titulo: "Merchandising",
+        imagen: {
+          url: "/images/sede/vitrina-merchandising.jpg",
+          alt: "Vitrina con tazas, gorras, banderines y remeras de filiales",
+        },
+      },
+      {
+        titulo: "La vitrina",
+        imagen: {
+          url: "/images/sede/vitrina.jpg",
+          alt: "Vitrina de vidrio con productos de la filial",
+        },
+      },
+      {
+        titulo: "El escudo histórico",
+        imagen: {
+          url: "/images/sede/escudo-historico.jpg",
+          alt: "Escudo antiguo de River Plate en la pared de la filial",
+        },
+      },
+      {
+        titulo: "Mirando a la calle",
+        imagen: {
+          url: "/images/sede/ventanal.jpg",
+          alt: "Mesas junto al ventanal de la filial sobre la calle Deán Funes",
+        },
+      },
+      {
+        titulo: "Rincones de la sede",
+        imagen: {
+          url: "/images/sede/pasillo.jpg",
+          alt: "Pasillo de la filial con un retrato y un escudo de River",
         },
       },
     ],

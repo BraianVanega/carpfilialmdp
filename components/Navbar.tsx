@@ -13,6 +13,7 @@ const NAV_LINKS = [
   { href: "/#que-hacemos", label: "Qué hacemos" },
   { href: "/proximos-viajes", label: "Viajes" },
   { href: "/entradas", label: "Entradas" },
+  { href: "/asociate", label: "Asociate" },
   { href: "/#sede", label: "Ubicación" },
   { href: "/#contacto", label: "Contacto" },
 ];
