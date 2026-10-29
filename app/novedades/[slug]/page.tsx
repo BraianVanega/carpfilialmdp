@@ -2,7 +2,9 @@ import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
+import { CompartirWhatsApp } from "@/components/CompartirWhatsApp";
 import { formatFecha, getNovedad, novedades } from "@/lib/novedades";
+import { SITE_URL } from "@/lib/site";
 
 type Props = {
   params: Promise<{ slug: string }>;
@@ -67,6 +69,12 @@ export default async function NovedadPage({ params }: Props) {
             {novedad.cuerpo.map((parrafo) => (
               <p key={parrafo}>{parrafo}</p>
             ))}
+            <div className="pt-4">
+              <CompartirWhatsApp
+                titulo={novedad.titulo}
+                url={`${SITE_URL}/novedades/${novedad.slug}`}
+              />
+            </div>
           </div>
 
           <div className="mx-auto grid w-full max-w-sm gap-4">
