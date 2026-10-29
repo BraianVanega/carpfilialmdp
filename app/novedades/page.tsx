@@ -42,8 +42,8 @@ export default function NovedadesPage() {
               >
                 <div className="relative aspect-square overflow-hidden">
                   <Image
-                    src={novedad.imagenes[0].url}
-                    alt={novedad.imagenes[0].alt}
+                    src={novedad.portada.url}
+                    alt={novedad.portada.alt}
                     fill
                     sizes="(min-width: 1024px) 33vw, (min-width: 640px) 50vw, 100vw"
                     className="object-cover transition duration-300 group-hover:scale-105"

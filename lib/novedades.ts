@@ -1,3 +1,5 @@
+type Imagen = { url: string; alt: string; width: number; height: number };
+
 export type Novedad = {
   slug: string;
   fecha: string;
@@ -5,7 +7,10 @@ export type Novedad = {
   titulo: string;
   resumen: string;
   cuerpo: string[];
-  imagenes: { url: string; alt: string; width: number; height: number }[];
+  /** Imagen cuadrada para la tarjeta del listado. */
+  portada: Imagen;
+  /** Imágenes que se muestran dentro de la noticia. */
+  imagenes: Imagen[];
   /** Imagen 1200×630 para compartir en redes. */
   imagenOg: string;
 };
@@ -25,13 +30,13 @@ export const novedades: Novedad[] = [
       "Te esperamos en Deán Funes 2221. Que el Superclásico se gane en la cancha y también afuera. ¡Sumate a la colecta!",
     ],
     imagenOg: "/images/novedades/superclasico-solidario-og.jpg",
+    portada: {
+      url: "/images/novedades/superclasico-solidario.jpg",
+      alt: "Flyer Superclásico solidario: traé un alimento no perecedero. Recolectamos en la filial durante el partido para donar a un comedor.",
+      width: 1254,
+      height: 1254,
+    },
     imagenes: [
-      {
-        url: "/images/novedades/superclasico-solidario.jpg",
-        alt: "Flyer Superclásico solidario: traé un alimento no perecedero. Recolectamos en la filial durante el partido para donar a un comedor.",
-        width: 1254,
-        height: 1254,
-      },
       {
         url: "/images/novedades/superclasico-solidario-vertical.jpg",
         alt: "Flyer vertical Superclásico solidario de la Filial Enzo Francescoli Mar del Plata.",

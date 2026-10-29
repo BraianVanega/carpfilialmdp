@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const novedad = getNovedad(slug);
   if (!novedad) return {};
 
-  const alt = novedad.imagenes[0].alt;
+  const alt = novedad.portada.alt;
 
   return {
     title: novedad.titulo,
@@ -69,7 +69,7 @@ export default async function NovedadPage({ params }: Props) {
             ))}
           </div>
 
-          <div className="grid grid-cols-2 gap-4">
+          <div className="mx-auto grid w-full max-w-sm gap-4">
             {novedad.imagenes.map((imagen) => (
               <a
                 key={imagen.url}
@@ -83,7 +83,7 @@ export default async function NovedadPage({ params }: Props) {
                   alt={imagen.alt}
                   width={imagen.width}
                   height={imagen.height}
-                  sizes="(min-width: 1024px) 25vw, 50vw"
+                  sizes="384px"
                   className="h-auto w-full"
                 />
               </a>
