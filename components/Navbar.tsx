@@ -8,6 +8,7 @@ import { TickerProximoViaje } from "@/components/TickerProximoViaje";
 import type { Partido } from "@/lib/partidos";
 
 const NAV_LINKS = [
+  { href: "/novedades", label: "Novedades" },
   { href: "/historia", label: "Historia" },
   { href: "/proximos-viajes", label: "Viajes" },
   { href: "/entradas", label: "Entradas" },
