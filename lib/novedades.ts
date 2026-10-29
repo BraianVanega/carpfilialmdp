@@ -6,6 +6,8 @@ export type Novedad = {
   resumen: string;
   cuerpo: string[];
   imagenes: { url: string; alt: string; width: number; height: number }[];
+  /** Imagen 1200×630 para compartir en redes. */
+  imagenOg: string;
 };
 
 export const novedades: Novedad[] = [
@@ -22,6 +24,7 @@ export const novedades: Novedad[] = [
       "La consigna es simple: si venís a ver el River vs Boca a la filial, traé un alimento no perecedero. Fideos, arroz, legumbres, harina, aceite, leche en polvo, enlatados o lo que puedas aportar. Cada paquete suma.",
       "Te esperamos en Deán Funes 2221. Que el Superclásico se gane en la cancha y también afuera. ¡Sumate a la colecta!",
     ],
+    imagenOg: "/images/novedades/superclasico-solidario-og.jpg",
     imagenes: [
       {
         url: "/images/novedades/superclasico-solidario.jpg",

@@ -19,7 +19,7 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const novedad = getNovedad(slug);
   if (!novedad) return {};
 
-  const imagen = novedad.imagenes[0];
+  const alt = novedad.imagenes[0].alt;
 
   return {
     title: novedad.titulo,
@@ -30,12 +30,12 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
       title: `${novedad.titulo} | Filial Enzo Francescoli`,
       description: novedad.resumen,
       url: `/novedades/${novedad.slug}`,
-      images: [{ url: imagen.url, width: imagen.width, height: imagen.height, alt: imagen.alt }],
+      images: [{ url: novedad.imagenOg, width: 1200, height: 630, alt }],
     },
     twitter: {
       title: `${novedad.titulo} | Filial Enzo Francescoli`,
       description: novedad.resumen,
-      images: [imagen.url],
+      images: [{ url: novedad.imagenOg, alt }],
     },
   };
 }
