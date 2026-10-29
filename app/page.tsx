@@ -1,12 +1,14 @@
 import type { Metadata } from "next";
 import { Hero } from "@/components/Hero";
 import { IdentitySection } from "@/components/IdentitySection";
+import { NovedadDestacadaSection } from "@/components/NovedadDestacadaSection";
 import { ProximamenteBanner } from "@/components/ProximamenteBanner";
 import { ProximosViajesSection } from "@/components/ProximosViajesSection";
 import { QueHacemosSection } from "@/components/QueHacemosSection";
 import { SedeMapSection } from "@/components/SedeMapSection";
 import { SedeSection } from "@/components/SedeSection";
 import { getInstitucional } from "@/lib/content";
+import { getNovedades } from "@/lib/novedades";
 import { getPartidos } from "@/lib/partidos";
 import { SITE_URL } from "@/lib/site";
 
@@ -22,6 +24,7 @@ export default async function HomePage() {
     getPartidos(),
   ]);
 
+  const [ultimaNovedad] = getNovedades();
   const { sede } = institucional;
   const jsonLd = {
     "@context": "https://schema.org",
@@ -67,6 +70,7 @@ export default async function HomePage() {
         }}
       />
       <Hero institucional={institucional} />
+      {ultimaNovedad ? <NovedadDestacadaSection novedad={ultimaNovedad} /> : null}
       <ProximamenteBanner
         titulo={institucional.proximamenteTitulo}
         cuerpo={institucional.proximamenteCuerpo}
