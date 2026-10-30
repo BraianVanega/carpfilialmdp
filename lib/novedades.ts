@@ -7,6 +7,8 @@ export type Novedad = {
   titulo: string;
   resumen: string;
   cuerpo: string[];
+  /** Recuadro destacado arriba del texto. */
+  aviso?: { titulo: string; texto: string };
   /** Imagen cuadrada para la tarjeta del listado. */
   portada: Imagen;
   /** Imágenes que se muestran dentro de la noticia. */
@@ -16,6 +18,39 @@ export type Novedad = {
 };
 
 export const novedades: Novedad[] = [
+  {
+    slug: "river-aldosivi",
+    fecha: "2026-10-30",
+    etiqueta: "Partido",
+    titulo: "River vs Aldosivi",
+    resumen:
+      "El partido por la última fecha del Clausura se jugaría el jueves 5 de noviembre a las 15 en el Minella, con público visitante. La filial no vende entradas: cuando tengamos más información, te avisamos.",
+    aviso: {
+      titulo: "No vendemos entradas",
+      texto:
+        "La filial no vende entradas para este partido. Cuando tengamos más información sobre la venta, te vamos a avisar por acá y por nuestras redes.",
+    },
+    cuerpo: [
+      "El partido entre Aldosivi y River, por la última fecha de la fase regular del Torneo Clausura, se jugaría el jueves 5 de noviembre a las 15 en el estadio José María Minella, con público de los dos equipos. La fecha y el horario todavía no están confirmados oficialmente.",
+      "El cambio se debe a la visita del papa León XIV a la Argentina, que llega el domingo 8 de noviembre por la noche: las fuerzas de seguridad van a estar abocadas a su visita. Por eso la AFA está armando el cronograma de una jornada atípica, con varios partidos en simultáneo en los que se definen la clasificación a las copas internacionales de 2027, los playoffs y el último descenso.",
+      "Para River hay mucho en juego. El objetivo principal es meterse en la próxima Copa Libertadores por la tabla anual, pero también tiene chances de pelear el título y todavía no aseguró su lugar en los playoffs.",
+      "La buena noticia para los hinchas de Mar del Plata es que se autorizó el público visitante. Los hinchas de River podrían ocupar la popular y la platea descubierta norte y, según trascendió, se destinarían hasta 6.000 entradas generales y 3.000 plateas para el equipo de Núñez.",
+      "Los precios de las entradas todavía no se informaron oficialmente. La venta se anunciaría para los primeros días de noviembre, con los detalles de los puntos de venta y las formas de compra.",
+    ],
+    portada: {
+      url: "/images/novedades/river-aldosivi.jpg",
+      alt: "Hinchas de River con bengalas y banderas en la tribuna del estadio José María Minella de Mar del Plata",
+      width: 1200,
+      height: 740,
+    },
+    imagenes: [{
+      url: "/images/novedades/river-aldosivi.jpg",
+      alt: "Hinchas de River con bengalas y banderas en la tribuna del estadio José María Minella de Mar del Plata",
+      width: 1200,
+      height: 740,
+    }],
+    imagenOg: "/images/novedades/river-aldosivi-og.jpg",
+  },
   {
     slug: "superclasico-solidario",
     fecha: "2026-10-28",

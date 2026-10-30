@@ -66,6 +66,14 @@ export default async function NovedadPage({ params }: Props) {
 
         <div className="mt-10 grid gap-10 lg:grid-cols-[1fr_1fr] lg:items-start">
           <div className="space-y-4 text-sm leading-relaxed text-white/75 sm:text-base">
+            {novedad.aviso ? (
+              <aside className="mb-8 rounded-2xl bg-river-red p-5 text-white sm:p-6">
+                <p className="font-display text-xl uppercase leading-tight sm:text-2xl">
+                  {novedad.aviso.titulo}
+                </p>
+                <p className="mt-2 text-sm leading-relaxed sm:text-base">{novedad.aviso.texto}</p>
+              </aside>
+            ) : null}
             {novedad.cuerpo.map((parrafo) => (
               <p key={parrafo}>{parrafo}</p>
             ))}
@@ -77,7 +85,11 @@ export default async function NovedadPage({ params }: Props) {
             </div>
           </div>
 
-          <div className="mx-auto grid w-full max-w-sm gap-4">
+          <div
+            className={`mx-auto grid w-full gap-4 ${
+              novedad.imagenes.every((imagen) => imagen.width > imagen.height) ? "" : "max-w-sm"
+            }`}
+          >
             {novedad.imagenes.map((imagen) => (
               <a
                 key={imagen.url}
@@ -91,7 +103,7 @@ export default async function NovedadPage({ params }: Props) {
                   alt={imagen.alt}
                   width={imagen.width}
                   height={imagen.height}
-                  sizes="384px"
+                  sizes="(min-width: 1024px) 560px, 100vw"
                   className="h-auto w-full"
                 />
               </a>
